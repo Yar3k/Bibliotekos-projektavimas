@@ -16,49 +16,49 @@ public class PhoneValidatorTest {
     }
 
     @Test
-    void checkValid_LT_Number1 (){
+    void checkValid_LT_Number1_True (){
         assertTrue(phoneValidator.validate("867123456"));
     }
 
     @Test
-    void checkValid_LT_Number2 (){
+    void checkValid_LT_Number2_True (){
         assertTrue(phoneValidator.validate("37067123456"));
     }
 
     @Test
-    void checkValid_PL_Number (){
+    void checkValid_PL_Number_True (){
         phoneValidator.addValidation(48, 9);
         assertTrue(phoneValidator.validate("48501123456"));
     }
 
     @Test
-    void checkInvalid_LT_Length (){
+    void checkInvalid_LT_Length_False (){
         assertFalse(phoneValidator.validate("867123456736"));
     }
 
     @Test
-    void checkInvalid_LT_Symbol (){
+    void checkInvalid_LT_Symbol_False (){
         assertFalse(phoneValidator.validate("867123+56"));
     }
 
     @Test
-    void checkInvalid_LT_Letter (){
+    void checkInvalid_LT_Letter_False (){
         assertFalse(phoneValidator.validate("37067123sZ6"));
     }
 
     @Test
-    void checkInvalid_PL_Length (){
+    void checkInvalid_PL_Length_False (){
         phoneValidator.addValidation(48, 9);
         assertFalse(phoneValidator.validate("4850112345611251"));
     }
 
     @Test
-    void checkNull (){
+    void checkNull_False (){
         assertFalse(phoneValidator.validate(null));
     }
 
     @Test
-    void checkEmpty (){
+    void checkEmpty_False (){
         assertFalse(phoneValidator.validate(""));
     }
 

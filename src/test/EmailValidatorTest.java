@@ -17,56 +17,56 @@ public class EmailValidatorTest {
     }
 
     @Test
-    void checkNoAtSign (){
+    void checkNoAtSign_False (){
         assertFalse(emailValidator.validate("gmail.com"));
     }
 
     @Test
-    void checkNoNamePart (){
+    void checkNoNamePart_False (){
         assertFalse(emailValidator.validate("@gmail.com"));
     }
 
     @Test
-    void checkValidName (){
+    void checkValidName_True (){
         assertTrue(emailValidator.validate("abc_def@mail.com"));
     }
 
     @Test
-    void checkAtSign (){
+    void checkAtSign_True (){
         assertTrue(emailValidator.validate("vardenis@gmail.com"));
     }
 
     @Test
-    void checkInvalidSymbol1 (){
+    void checkInvalidSymbol1_False (){
         assertFalse(emailValidator.validate("vardenis pavardenis@gmail.com"));
     }
 
     @Test
-    void checkInvalidSymbol2 (){
+    void checkInvalidSymbol2_False (){
         assertFalse(emailValidator.validate("vardenis\"is@gmail.com"));
     }
 
     @Test
-    void checkInvalidDomain1 (){
+    void checkInvalidDomain1_False (){
         assertFalse(emailValidator.validate("vardenis.pavardenis@g#mail.com"));
     }
     @Test
-    void checkInvalidDomain2 (){
+    void checkInvalidDomain2_False (){
         assertFalse(emailValidator.validate("vardenis.pavardenis@gmail..com"));
     }
 
     @Test
-    void checkValidDomain (){
+    void checkValidDomain_True (){
         assertTrue(emailValidator.validate("abc.def@mail-archive.com"));
     }
 
     @Test
-    void checkEmpty (){
+    void checkEmpty_False (){
         assertFalse(emailValidator.validate(""));
     }
 
     @Test
-    void checkNull (){
+    void checkNull_False (){
         assertFalse(emailValidator.validate(null));
     }
 
