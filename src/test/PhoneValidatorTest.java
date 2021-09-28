@@ -10,87 +10,99 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PhoneValidatorTest {
 
     PhoneValidator phoneValidator;
+
     @BeforeEach
     void setUp() {
         phoneValidator = new PhoneValidator();
     }
 
     @Test
-    void checkValid_LT_Number1_True (){
+    void checkValid_LT_Number1_True() {
         assertTrue(phoneValidator.validate("867123456"));
     }
 
     @Test
-    void checkValid_LT_Number2_True (){
+    void checkValid_LT_Number2_True() {
         assertTrue(phoneValidator.validate("37067123456"));
     }
 
     @Test
-    void checkValid_PL_Number_True (){
-        phoneValidator.addValidation(48, 9);
+    void checkValid_PL_Number_True() {
+        phoneValidator.addValidation(48, 11);
         assertTrue(phoneValidator.validate("48501123456"));
     }
 
     @Test
-    void checkInvalid_LT_Length_False (){
+    void checkInvalid_LT_Length_False() {
         assertFalse(phoneValidator.validate("867123456736"));
     }
 
     @Test
-    void checkInvalid_LT_Symbol_False (){
+    void checkInvalid_LT_Symbol_False() {
         assertFalse(phoneValidator.validate("867123+56"));
     }
 
     @Test
-    void checkInvalid_LT_Letter_False (){
+    void checkInvalid_LT_Letter_False() {
         assertFalse(phoneValidator.validate("37067123sZ6"));
     }
 
     @Test
-    void checkInvalid_PL_Length_False (){
+    void checkInvalid_PL_Length_False() {
         phoneValidator.addValidation(48, 9);
         assertFalse(phoneValidator.validate("4850112345611251"));
     }
 
     @Test
-    void checkNull_False (){
+    void checkNull_False() {
         assertFalse(phoneValidator.validate(null));
     }
 
     @Test
-    void checkEmpty_False (){
+    void checkEmpty_False() {
         assertFalse(phoneValidator.validate(""));
     }
 
+
     @Test
-    void checkAddValidation_Valid (){
-        assertDoesNotThrow(phoneValidator.addValidation(49, 10));
+    void checkAddValidation_Valid() {
+        assertDoesNotThrow(() -> phoneValidator.addValidation(49, 10));
     }
 
     @Test
-    void checkAddValidation_ZeroLength (){
-        assertThrows(phoneValidator.addValidation(33, 0));
+    void checkAddValidation_ZeroLength() {
+        assertThrows(IllegalArgumentException.class, () ->
+                phoneValidator.addValidation(33, 0)
+        );
     }
 
     @Test
-    void checkAddValidation_NegativeLength (){
-        assertThrows(phoneValidator.addValidation(33, -15));
+    void checkAddValidation_NegativeLength() {
+        assertThrows(IllegalArgumentException.class, () ->
+                phoneValidator.addValidation(33, -15)
+        );
     }
 
     @Test
-    void checkAddValidation_ZeroPrefix (){
-        assertThrows(phoneValidator.addValidation(0, 10));
+    void checkAddValidation_ZeroPrefix() {
+        assertThrows(IllegalArgumentException.class, () ->
+                phoneValidator.addValidation(0, 10)
+        );
     }
 
     @Test
-    void checkAddValidation_NegativePrefix (){
-        assertThrows(phoneValidator.addValidation(-10, 10));
+    void checkAddValidation_NegativePrefix() {
+        assertThrows(IllegalArgumentException.class, () ->
+                phoneValidator.addValidation(-10, 10)
+        );
     }
 
     @Test
-    void checkAddValidation_Dublicate (){
+    void checkAddValidation_Duplicate() {
         phoneValidator.addValidation(33, 9);
-        assertThrows(phoneValidator.addValidation(33, 9));
+        assertThrows(IllegalArgumentException.class, () ->
+                phoneValidator.addValidation(33, 9)
+        );
     }
 
     @AfterEach
