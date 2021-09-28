@@ -28,7 +28,7 @@ public class PhoneValidatorTest {
 
     @Test
     void checkValid_PL_Number_True() {
-        phoneValidator.addValidation(48, 11);
+        phoneValidator.addValidation(48, 9);
         assertTrue(phoneValidator.validate("48501123456"));
     }
 
