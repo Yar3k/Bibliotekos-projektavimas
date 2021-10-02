@@ -23,7 +23,7 @@ public class PhoneValidatorTest {
 
     @Test
     void checkValid_LT_Number2_True() {
-        assertTrue(phoneValidator.validate("37067123456"));
+        assertTrue(phoneValidator.validate("+37067123456"));
     }
 
     @Test
