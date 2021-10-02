@@ -2,7 +2,7 @@ Nukopijuotas mano forkas.
 
 Jei kažkas galimai neveiks, siūlyčiau naudoti forką, o ne šitą kopiją:
 
-<a href="https://github.com/pozniakas/psp-task-1">Nuoroda i forką</a>
+<a href="https://github.com/Yar3k/psp-task-1">Nuoroda i forką</a>
 
 Taip pat forke yra visa commitu istorija.
 
