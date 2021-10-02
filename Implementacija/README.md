@@ -1,27 +1,20 @@
-<a href="https://github.com/pozniakas/psp-task-1">Fork from here</a>
-<h1>Library</h1>
-<div>
-1st Laboratory work of Vilnius University student.
-</div>
-<h2>Business requirements</h2>
+Nukopijuotas mano forkas.
 
-<h3>
-  PasswordChecker
-</h3>
- - Checks if the password is at least X long<br>
-- Checks for Uppercase characters<br>
-- Checks for a special character (list of special characters must be configured)<br>
-<br>
-<h3>
-  PhoneValidator
-</h3>
-- There are no other characters than numbers
-<br>- If it starts with 8, it changes to +370
-<br>- It is possible to add new validation rules by country (length and prefix)
-<h3>
-  EmailValidator
-</h3>
-- Has @ symbol<br>
-- No invalid characters<br>
-- Has the correct domain and TLD
+Jei kažkas galimai neveiks, siūlyčiau naudoti forką, o ne šitą kopiją:
 
+<a href="https://github.com/pozniakas/psp-task-1">Nuoroda i forką</a>
+
+Taip pat forke yra visa commitu istorija.
+
+<h1>Atsakymai į klausimus antrai daliai:</h1>
+<h3>Ar buvo aiškus ir patogus unit testai, ar kodas aiškus.</h3>
+Taip. Kodas ir testai buvo aiškūs ir patogūs. Pora testo vietų buvo klaidingi pavyzdžiai, tačiau tai buvo greitai išspresta.
+<h3>Kaip jus galėtumete juos pagerinti</h3>
+Manau pagerinti nelabai ka galima būtų. Nebent tuos „Test case“ ištaisyti (kas ir buvo po to padaryta). Manau būtų gerai buve, jeigu dar testiniuose failuose būtų realizuotas " @BeforeEach" setUpinimui.
+Testu pavadinimai buvo geri. Buvo aišku, kur kokio outputo tikėtis (ar tai koks exeptionas, ar normalus outputas (pvz.: true, string)).
+Pagerinti galima būtų tik pridėjus pora neįvykdytų test case.
+<h3>Kokius unit testus jus galėtumėte pridėti (jei tokių yra)</h3>
+Kokius pridėjau unit testus galima pamatyti <a href="https://github.com/Yar3k/Bibliotekos-projektavimas/blob/main/Implementacija/test/com/library/validation/AdditionalTests.java">ČIA</a>
+<div>Jei trumpai paaiškinti ir išvardinti tai:</div>
+<div>Beveik visuose unit testuose nebuvo tikrinama null reikšmė (jeigu tai ne primitive data type)</div>
+<div>Nebuvo testu, kur būtų galima įdėti naujų validavimo taisyklių (phone validation)</div>
